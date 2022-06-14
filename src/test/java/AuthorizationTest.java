@@ -18,10 +18,13 @@ public class AuthorizationTest {
     public void authorization() {
         LoginPage loginPage = new LoginPage();
 
+        final String login = Helper.getProperty("login");
+        final String password = Helper.getProperty("pass");
+
         System.out.println("Open login page");
         loginPage.open();
 
-        loginPage.authorize();
+        loginPage.authorize(login, password);
     }
 
     @After

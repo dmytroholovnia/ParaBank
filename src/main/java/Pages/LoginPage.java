@@ -26,21 +26,20 @@ public class LoginPage {
     @FindBy(xpath = "//input[@value='Login']")
     private WebElement loginButton;
 
-    public LoginPage open() {
+    public void open() {
         getDriver().get(url);
-        return new LoginPage();
+        new LoginPage();
     }
 
-    public MainPage authorize() {
-//        String login, String password
+    public void authorize(String login, String password) {
         System.out.println("Enter login");
-        loginInput.sendKeys("standard_user");
+        loginInput.sendKeys(login);
 
         System.out.println("Enter pass");
-        passwordInput.sendKeys("secret_sauce");
+        passwordInput.sendKeys(password);
 
         System.out.println("Click 'Login' button");
         loginButton.click();
-        return new MainPage();
+        new MainPage();
     }
 }
