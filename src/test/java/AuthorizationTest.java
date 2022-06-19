@@ -1,18 +1,7 @@
 import Pages.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import static Core.Driver.getDriver;
-
-public class AuthorizationTest {
-
-    @Before
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        getDriver();
-    }
+public class AuthorizationTest extends BaseTest {
 
     @Test
     public void authorization() {
@@ -27,10 +16,4 @@ public class AuthorizationTest {
         loginPage.authorize(login, password);
     }
 
-    @After
-    public void tearDown() {
-        if (getDriver() != null) {
-            getDriver().quit();
-        }
-    }
 }

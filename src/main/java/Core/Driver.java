@@ -7,10 +7,6 @@ public class Driver {
 
     private static WebDriver driver;
 
-    private Driver() {
-        new ChromeDriver();
-    }
-
     public static WebDriver getDriver() {
         if(driver == null) {
             driver = new ChromeDriver();
