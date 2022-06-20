@@ -9,29 +9,35 @@ import static Core.Driver.getDriver;
 
 @Getter
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
     public LoginPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public static final String url = "https://www.saucedemo.com/";
+//    public static final String url = "https://parabank.parasoft.com/";
 
-    @FindBy(id = "user-name")
+    @FindBy(name = "username")
     private WebElement loginInput;
 
-    @FindBy(id = "password")
+    @FindBy(name = "password")
     private WebElement passwordInput;
 
-    @FindBy(xpath = "//input[@value='Login']")
+    @FindBy(xpath = "//input[@value='Log In']")
     private WebElement loginButton;
 
-    public void open() {
-        getDriver().get(url);
-        new LoginPage();
-    }
+    @FindBy(xpath = "//div[@id='rightPanel']//h1")
+    private WebElement errorTitle;
 
-    public void authorize(String login, String password) {
+    @FindBy(xpath = "//div[@id='rightPanel']//p")
+    private WebElement errorMessage;
+
+//    public void open() {
+//        getDriver().get(url);
+//        new LoginPage();
+//    }
+
+    public MainPage authorize(String login, String password) {
         System.out.println("Enter login");
         loginInput.sendKeys(login);
 
@@ -40,6 +46,6 @@ public class LoginPage {
 
         System.out.println("Click 'Login' button");
         loginButton.click();
-        new MainPage();
+        return new MainPage();
     }
 }
