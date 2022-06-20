@@ -10,13 +10,13 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     public void authorization() {
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage(driver);
 
         final String login = Helper.getProperty("login");
         final String password = Helper.getProperty("pass");
 
         System.out.println("Open login page");
-        loginPage.open();
+        loginPage.open(driver);
 
         MainPage mainPage =  loginPage.authorize(login, password);
 
@@ -30,14 +30,14 @@ public class AuthorizationTest extends BaseTest {
 
     @Test
     public void authorizationFailed() {
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage(driver);
 
         final String login = RandomStringUtils.randomAlphabetic(10);
         final String password = RandomStringUtils.randomAlphabetic(10);
         final String expectedMessage = "The username and password could not be verified.";
 
         System.out.println("Open login page");
-        loginPage.open();
+        loginPage.open(driver);
 
         loginPage.authorize(login, password);
 
