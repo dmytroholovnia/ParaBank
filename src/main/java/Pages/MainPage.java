@@ -1,18 +1,18 @@
 package Pages;
 
 import lombok.Getter;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static Core.Driver.getDriver;
-
 @Getter
 
-public class MainPage {
+public class MainPage extends BasePage{
 
-    public MainPage() {
-        PageFactory.initElements(getDriver(), this);
+    public MainPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//div[@ng-if='showOverview']//h1")
