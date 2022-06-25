@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 @Getter
 
-public class MainPage extends BasePage{
+public class MainPage extends BasePage {
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
