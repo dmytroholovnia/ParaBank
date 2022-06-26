@@ -27,12 +27,14 @@ public class OpenNewAccountPage extends BasePage {
     WebElement openAccountButton;
 
     public void selectType(Types type) {
+        waiter.waitAllRequest();
         Select select = new Select(typeSelector);
         select.selectByVisibleText(String.valueOf(type));
         waiter.waitAllRequest();
     }
 
     public void openNewAccount() {
+        waiter.waitAllRequest();
         openAccountButton.click();
         waiter.waitForElement(By.xpath("//div[@id='rightPanel']//a"));
     }
