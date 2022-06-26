@@ -1,10 +1,13 @@
 import Core.Driver;
 import Core.Waiter;
+import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.Getter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+
+import java.util.Locale;
 
 public class BaseTest {
 
@@ -12,6 +15,7 @@ public class BaseTest {
     protected Waiter waiter;
     protected String login;
     protected String password;
+    protected Faker data;
 
     @Before
     public void setup() {
@@ -20,6 +24,7 @@ public class BaseTest {
         waiter = new Waiter(driver);
         login = Helper.getProperty("login");
         password = Helper.getProperty("pass");
+        data = new Faker(new Locale("en"));
     }
 
     @After
