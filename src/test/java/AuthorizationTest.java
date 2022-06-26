@@ -8,20 +8,14 @@ import static org.junit.Assert.assertTrue;
 
 public class AuthorizationTest extends BaseTest {
 
-    private String login;
-    private String password;
-
     @Test
     public void authorization() {
         LoginPage loginPage = new LoginPage(driver);
 
-        login = Helper.getProperty("login");
-        password = Helper.getProperty("pass");
-
         System.out.println("Open login page");
         loginPage.open(driver);
 
-        MainPage mainPage =  loginPage.authorize(login, password);
+        MainPage mainPage = loginPage.authorize(login, password);
 
         assertEquals("Title is incorrect",
                      "Accounts Overview",

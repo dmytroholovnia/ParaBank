@@ -4,18 +4,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LogOutTest extends AuthorizationTest {
+public class LogOutTest extends BaseTest {
+
+    private final LoginPage loginPage = new LoginPage(driver);
+    private MainPage mainPage;
 
     @Before
     public void authorize() {
-        authorization();
+        loginPage.open(driver);
+        mainPage = loginPage.authorize(login, password);
     }
 
     @Test
     public void logOut(){
-        LoginPage loginPage = new LoginPage(driver);
-        MainPage mainPage = new MainPage(driver);
-
         System.out.println("Click 'Log Out'");
         mainPage.goToPage("Log Out");
 
