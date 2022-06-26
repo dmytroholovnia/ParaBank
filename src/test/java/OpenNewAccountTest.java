@@ -3,16 +3,29 @@ import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.OpenNewAccountPage;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
+@RunWith(Parameterized.class)
 public class OpenNewAccountTest extends BaseTest {
+
+    @Parameterized.Parameters
+    public static Object[] accounts() {
+        return new Object[]{
+                Types.SAVINGS,
+                Types.CHECKING
+        };
+    }
+
+    @Parameterized.Parameter()
+    public Types type;
 
     @Test
     public void createCheckingAccount() {
         LoginPage loginPage = new LoginPage(driver);
         OpenNewAccountPage openNewAccountPage = new OpenNewAccountPage(driver, waiter);
-        Types type = Types.SAVINGS;
 
         final String login = Helper.getProperty("login");
         final String password = Helper.getProperty("pass");
