@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SignUpPage extends BasePage {
 
     public SignUpPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

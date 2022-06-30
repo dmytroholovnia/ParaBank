@@ -16,6 +16,10 @@ public class BasePage {
     protected Waiter waiter;
     protected static final String url = "https://parabank.parasoft.com/";
 
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
     public void open(WebDriver driver) {
         this.driver = driver;
         this.waiter = new Waiter(driver);

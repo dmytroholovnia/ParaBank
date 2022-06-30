@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import static org.junit.runners.Parameterized.*;
 
 @RunWith(Parameterized.class)
-public class OpenNewAccountTest extends BaseTest {
+public class OpenNewAccountTests extends BaseTest {
 
     private final LoginPage loginPage = new LoginPage(driver);
     private MainPage mainPage;
@@ -33,7 +33,7 @@ public class OpenNewAccountTest extends BaseTest {
     }
 
     @Test
-    public void createCheckingAccount() {
+    public void createAccount() {
         OpenNewAccountPage openNewAccountPage = new OpenNewAccountPage(driver, waiter);
 
         System.out.println("Go to page 'Open New Account'");
