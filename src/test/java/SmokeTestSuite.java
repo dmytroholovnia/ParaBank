@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         AuthorizationTest.class,
         SignUpTest.class,
-        OpenNewAccountTest.class,
+        OpenNewAccountTests.class,
         LogOutTest.class
 })
 
