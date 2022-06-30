@@ -33,6 +33,9 @@ public class BasePage {
     @FindBy(className = "title")
     private WebElement title;
 
+    @FindBy(xpath = "//div[@id='rightPanel']//p")
+    private WebElement message;
+
     public void goToPage(String page) {
         mainMenu.findElement(By.xpath("//ul//li//a[text()='" + page + "']")).click();
     }

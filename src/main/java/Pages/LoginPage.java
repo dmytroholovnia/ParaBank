@@ -30,6 +30,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[@id='rightPanel']//p")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//a[text()='Register']")
+    private WebElement registerButton;
+
     public MainPage authorize(String login, String password) {
         System.out.println("Enter login");
         loginInput.sendKeys(login);
@@ -40,5 +43,10 @@ public class LoginPage extends BasePage {
         System.out.println("Click 'Login' button");
         loginButton.click();
         return new MainPage(driver);
+    }
+
+    public SignUpPage clickRegister() {
+        registerButton.click();
+        return new SignUpPage(driver);
     }
 }

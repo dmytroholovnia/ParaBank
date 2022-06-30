@@ -2,32 +2,39 @@ import Enums.Types;
 import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.OpenNewAccountPage;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
+import static org.junit.runners.Parameterized.*;
 
+@RunWith(Parameterized.class)
 public class OpenNewAccountTest extends BaseTest {
+
+    private final LoginPage loginPage = new LoginPage(driver);
+    private MainPage mainPage;
+
+    @Parameters
+    public static Object[] accounts() {
+        return new Object[]{
+                Types.SAVINGS,
+                Types.CHECKING
+        };
+    }
+    @Parameter()
+    public Types type;
+
+    @Before
+    public void authorize() {
+        loginPage.open(driver);
+        mainPage = loginPage.authorize(login, password);
+    }
 
     @Test
     public void createCheckingAccount() {
-        LoginPage loginPage = new LoginPage(driver);
         OpenNewAccountPage openNewAccountPage = new OpenNewAccountPage(driver, waiter);
-        Types type = Types.SAVINGS;
-
-        final String login = Helper.getProperty("login");
-        final String password = Helper.getProperty("pass");
-
-        System.out.println("Open login page");
-        loginPage.open(driver);
-
-        MainPage mainPage =  loginPage.authorize(login, password);
-
-        assertEquals("Title is incorrect",
-                "Accounts Overview",
-                mainPage.getPageTitle().getText());
-
-        assertTrue("Accounts table is not present!",
-                mainPage.getAccountTable().isDisplayed());
 
         System.out.println("Go to page 'Open New Account'");
         mainPage.goToPage("Open New Account");
