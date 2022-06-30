@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 public class OpenNewAccountPage extends BasePage {
 
     public OpenNewAccountPage (WebDriver driver, Waiter waiter) {
-        this.driver = driver;
+        super(driver);
         this.waiter = waiter;
         PageFactory.initElements(driver, this);
     }
