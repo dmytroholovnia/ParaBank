@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Locale;
 
@@ -20,7 +21,7 @@ public class BaseTest {
     @Before
     public void setup() {
         WebDriverManager.chromedriver().setup();
-        driver = new Driver().getDriver();
+        driver = new Driver().getDriver(getOptions());
         waiter = new Waiter(driver);
         login = Helper.getProperty("login");
         password = Helper.getProperty("pass");
@@ -32,5 +33,13 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    private ChromeOptions getOptions() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems for Jenkins
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+
+        return options;
     }
 }
