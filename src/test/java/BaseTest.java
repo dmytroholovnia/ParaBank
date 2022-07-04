@@ -2,7 +2,6 @@ import Core.Driver;
 import Core.Waiter;
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.Getter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +38,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems for Jenkins
         options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--headless");
 
         return options;
     }
