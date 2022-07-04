@@ -25,26 +25,26 @@ public class AuthorizationTest extends BaseTest {
                              mainPage.getAccountTable().isDisplayed());
     }
 
-    @Test
-    public void authorizationFailed() {
-        LoginPage loginPage = new LoginPage(driver);
-
-        final String expectedMessage = "The username and password could not be verified.";
-        login = RandomStringUtils.randomAlphabetic(10);
-        password = RandomStringUtils.randomAlphabetic(10);
-
-        System.out.println("Open login page");
-        loginPage.open(driver);
-
-        loginPage.authorize(login, password);
-
-        assertEquals("Error title is incorrect",
-                     "Error!",
-                     loginPage.getErrorTitle().getText());
-
-        assertEquals("Eror message is incorrect!",
-                             expectedMessage,
-                             loginPage.getErrorMessage().getText());
-    }
+//    @Test
+//    public void authorizationFailed() {
+//        LoginPage loginPage = new LoginPage(driver);
+//
+//        final String expectedMessage = "The username and password could not be verified.";
+//        login = RandomStringUtils.randomAlphabetic(10);
+//        password = RandomStringUtils.randomAlphabetic(10);
+//
+//        System.out.println("Open login page");
+//        loginPage.open(driver);
+//
+//        loginPage.authorize(login, password);
+//
+//        assertEquals("Error title is incorrect",
+//                     "Error!",
+//                     loginPage.getErrorTitle().getText());
+//
+//        assertEquals("Eror message is incorrect!",
+//                             expectedMessage,
+//                             loginPage.getErrorMessage().getText());
+//    }
 
 }
