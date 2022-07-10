@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,6 +54,7 @@ public class SignUpPage extends BasePage {
     @FindBy(xpath = "//input[@value='Register']")
     private WebElement registerButton;
 
+    @Step
     public void fillCustomerData(String firstName,
                                  String lastName,
                                  String address,
@@ -99,6 +101,7 @@ public class SignUpPage extends BasePage {
         confirmInput.sendKeys(confirm);
     }
 
+    @Step("Click 'Register' button")
     public void registerCustomer() {
         registerButton.click();
     }
