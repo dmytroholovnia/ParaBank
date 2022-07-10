@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,6 +34,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[text()='Register']")
     private WebElement registerButton;
 
+    @Step("Authorize")
     public MainPage authorize(String login, String password) {
         System.out.println("Enter login");
         loginInput.sendKeys(login);
@@ -45,6 +47,7 @@ public class LoginPage extends BasePage {
         return new MainPage(driver);
     }
 
+    @Step("Click 'Register' button")
     public SignUpPage clickRegister() {
         registerButton.click();
         return new SignUpPage(driver);

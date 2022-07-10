@@ -2,6 +2,7 @@ package Pages;
 
 import Core.Waiter;
 import Enums.Types;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class OpenNewAccountPage extends BasePage {
     @FindBy(xpath = "//input[@class='button']")
     WebElement openAccountButton;
 
+    @Step
     public void selectType(Types type) {
         waiter.waitAllRequest();
         Select select = new Select(typeSelector);
@@ -33,6 +35,7 @@ public class OpenNewAccountPage extends BasePage {
         waiter.waitAllRequest();
     }
 
+    @Step
     public void openNewAccount() {
         waiter.waitAllRequest();
         openAccountButton.click();
