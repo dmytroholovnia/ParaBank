@@ -27,7 +27,7 @@ public class OpenNewAccountPage extends BasePage {
     @FindBy(xpath = "//input[@class='button']")
     WebElement openAccountButton;
 
-    @Step
+    @Step("Select account type: '{0}'")
     public void selectType(Types type) {
         waiter.waitAllRequest();
         Select select = new Select(typeSelector);
@@ -35,7 +35,7 @@ public class OpenNewAccountPage extends BasePage {
         waiter.waitAllRequest();
     }
 
-    @Step
+    @Step("Open new account")
     public void openNewAccount() {
         waiter.waitAllRequest();
         openAccountButton.click();

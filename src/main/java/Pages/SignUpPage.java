@@ -54,7 +54,7 @@ public class SignUpPage extends BasePage {
     @FindBy(xpath = "//input[@value='Register']")
     private WebElement registerButton;
 
-    @Step
+    @Step("Fill customer data")
     public void fillCustomerData(String firstName,
                                  String lastName,
                                  String address,
