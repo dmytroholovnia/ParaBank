@@ -1,7 +1,10 @@
-import Enums.Types;
-import Pages.LoginPage;
-import Pages.MainPage;
-import Pages.OpenNewAccountPage;
+package ui;
+
+import core.BaseTest;
+import enums.Types;
+import pages.LoginPage;
+import pages.MainPage;
+import pages.OpenNewAccountPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

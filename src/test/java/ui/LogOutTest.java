@@ -1,5 +1,8 @@
-import Pages.LoginPage;
-import Pages.MainPage;
+package ui;
+
+import core.BaseTest;
+import pages.LoginPage;
+import pages.MainPage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

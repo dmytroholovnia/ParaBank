@@ -1,7 +1,7 @@
-package Pages;
+package pages;
 
-import Core.Waiter;
-import Enums.Types;
+import core.Waiter;
+import enums.Types;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;

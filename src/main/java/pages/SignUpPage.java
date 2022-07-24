@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import io.qameta.allure.Step;
 import lombok.Getter;
@@ -55,7 +55,7 @@ public class SignUpPage extends BasePage {
     private WebElement registerButton;
 
     @Step("Fill customer data")
-    public void fillCustomerData(String firstName,
+    public void fillCustomerData(String firstName,      //todo refactor to builder
                                  String lastName,
                                  String address,
                                  String city,

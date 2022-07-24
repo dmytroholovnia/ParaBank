@@ -1,5 +1,6 @@
-import Core.Driver;
-import Core.Waiter;
+package core;
+
+import helper.Helper;
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
