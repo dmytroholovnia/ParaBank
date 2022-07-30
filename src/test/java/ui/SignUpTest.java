@@ -1,5 +1,8 @@
-import Pages.LoginPage;
-import Pages.SignUpPage;
+package ui;
+
+import core.BaseTest;
+import pages.LoginPage;
+import pages.SignUpPage;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;

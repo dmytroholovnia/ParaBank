@@ -1,6 +1,7 @@
-package Pages;
+package pages;
 
-import Core.Waiter;
+import core.Config;
+import core.Waiter;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class BasePage {
 
     protected WebDriver driver;
     protected Waiter waiter;
-    protected static final String url = "https://parabank.parasoft.com/";
+    protected static final String url = new Config().getUrl();
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
