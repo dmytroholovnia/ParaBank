@@ -11,17 +11,16 @@ public class ApiGetAccountsTest extends Config {
 
     @Test
     public void getAccountsTest() {
-        final String customerId = Integer.toString(12212);
+        final String customerId = Integer.toString(12434);
 
         given()
                 .when()
-                .cookie("JSESSIONID", getAuthCookieValue())
                 .pathParam("customerId", customerId)
-                .log().uri()
+                .log().ifValidationFails()
                 .get(GET_ACCOUNTS)
                 .then()
                 .statusCode(SUCCESS)
-                .log().all();
+                .log().ifValidationFails();
     }
 
 }
