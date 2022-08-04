@@ -2,6 +2,7 @@ package core;
 
 import helper.Helper;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -30,16 +31,23 @@ public class Config {
     public void setUp() {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
+
+        RestAssured.requestSpecification = new RequestSpecBuilder()
+                .addCookie("JSESSIONID", getAuthCookieValue())
+                .build();
+
+        //todo add response spec
+        //todo add log spec
     }
 
     public String getAuthCookieValue() {
         if (authCookieValue == null) {
-            System.out.println("no auth cookie found");
-            System.out.println("creating an auth cookie");
+            System.out.println("No auth cookie found");
+            System.out.println("Creating an auth cookie");
             setAuthCookieValue(getAuthCookie());
         }
 
-        System.out.println("auth cookie: " + authCookieValue);
+        System.out.println("Auth cookie: " + authCookieValue);
         return authCookieValue;
     }
 
@@ -47,7 +55,7 @@ public class Config {
         authCookieValue = value;
     }
 
-    private String getAuthCookie() {
+    private String getAuthCookie() {    //todo add validation for successfully login
 
         return given()
                 .when()
