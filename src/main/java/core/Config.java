@@ -43,7 +43,7 @@ public class Config {
                 .addCookie("JSESSIONID", getAuthCookieValue())
                 .build();
 
-        //todo add log spec
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
     public String getAuthCookieValue() {

@@ -32,7 +32,7 @@ public class ApiLoginTest extends Config {
                 .formParams(getCredentials())
                 .post(LOGIN)
                 .then()
-                .spec(loginResponseSpec).log().ifValidationFails();
+                .spec(loginResponseSpec);
     }
 
 }
