@@ -15,11 +15,9 @@ public class ApiGetAccountsTest extends Config {
         given()
                 .when()
                 .pathParam("customerId", customerId)
-                .log().ifValidationFails()
                 .get(GET_ACCOUNTS)
                 .then()
-                .spec(responseSpecification)
-                .log().ifValidationFails();
+                .spec(responseSpecification);
     }
 
 }

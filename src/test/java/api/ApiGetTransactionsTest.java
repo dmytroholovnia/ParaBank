@@ -15,10 +15,8 @@ public class ApiGetTransactionsTest extends Config {
         given()
                 .when()
                 .pathParam("accountId", accountId)
-                .log().ifValidationFails()
                 .get(GET_TRANSACTIONS)
                 .then()
-                .spec(responseSpecification)
-                .log().all();
+                .spec(responseSpecification);
     }
 }
