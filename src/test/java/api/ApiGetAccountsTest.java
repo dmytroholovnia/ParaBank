@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import static constants.Constants.Actions.GET_ACCOUNTS;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class ApiGetAccountsTest extends Config {
 
@@ -17,7 +19,10 @@ public class ApiGetAccountsTest extends Config {
                 .pathParam("customerId", customerId)
                 .get(GET_ACCOUNTS)
                 .then()
-                .spec(responseSpecification);
+                .spec(responseSpecification)
+                .log().body()
+                .body("type", notNullValue())
+                .body("type[0]", equalTo("CHECKING"));
     }
 
 }
