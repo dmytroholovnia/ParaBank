@@ -3,6 +3,8 @@ package core;
 import helper.Helper;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -11,6 +13,7 @@ import java.util.Map;
 import static constants.Constants.Actions.LOGIN;
 import static constants.Constants.RunVariable.path;
 import static constants.Constants.RunVariable.server;
+import static constants.Constants.Statuses.SUCCESS;
 import static io.restassured.RestAssured.given;
 
 public class Config {
@@ -26,6 +29,10 @@ public class Config {
         return url;
     }
 
+    protected ResponseSpecification responseSpecification = new ResponseSpecBuilder()
+            .expectStatusCode(SUCCESS)
+            .build();
+
     //for API
     @Before
     public void setUp() {
@@ -36,7 +43,6 @@ public class Config {
                 .addCookie("JSESSIONID", getAuthCookieValue())
                 .build();
 
-        //todo add response spec
         //todo add log spec
     }
 

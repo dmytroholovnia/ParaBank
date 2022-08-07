@@ -4,15 +4,13 @@ import core.Config;
 import org.junit.Test;
 
 import static constants.Constants.Actions.GET_TRANSACTIONS;
-import static constants.Constants.Statuses.SUCCESS;
 import static io.restassured.RestAssured.given;
 
 public class ApiGetTransactionsTest extends Config {
 
-
     @Test
     public void getTransactionsTest() {
-        final String accountId = Integer.toString(13566);
+        final String accountId = Integer.toString(13122);
 
         given()
                 .when()
@@ -20,7 +18,7 @@ public class ApiGetTransactionsTest extends Config {
                 .log().ifValidationFails()
                 .get(GET_TRANSACTIONS)
                 .then()
-                .statusCode(SUCCESS)
+                .spec(responseSpecification)
                 .log().all();
     }
 }
