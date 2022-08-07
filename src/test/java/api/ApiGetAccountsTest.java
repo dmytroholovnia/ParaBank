@@ -4,7 +4,6 @@ import core.Config;
 import org.junit.Test;
 
 import static constants.Constants.Actions.GET_ACCOUNTS;
-import static constants.Constants.Statuses.SUCCESS;
 import static io.restassured.RestAssured.given;
 
 public class ApiGetAccountsTest extends Config {
@@ -19,7 +18,7 @@ public class ApiGetAccountsTest extends Config {
                 .log().ifValidationFails()
                 .get(GET_ACCOUNTS)
                 .then()
-                .statusCode(SUCCESS)
+                .spec(responseSpecification)
                 .log().ifValidationFails();
     }
 
