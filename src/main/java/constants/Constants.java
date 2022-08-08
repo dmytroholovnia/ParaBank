@@ -22,6 +22,7 @@ public class Constants {
         public static String LOGIN = "login.htm";
         public static String GET_ACCOUNTS = "services_proxy/bank/customers/{customerId}/accounts";
         public static String GET_TRANSACTIONS = "services_proxy/bank/accounts/{accountId}/transactions";
+        public static String REQUEST_LOAN = "services_proxy/bank/requestLoan";
     }
 
     public static class Statuses {
