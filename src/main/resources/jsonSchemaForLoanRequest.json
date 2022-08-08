@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "responseDate",
+    "loanProviderName",
+    "approved",
+    "accountId"
+  ],
+  "properties": {
+    "responseDate": {
+      "type": "integer",
+      "default": 0,
+      "title": "The responseDate Schema",
+      "examples": [
+        1660002738671
+      ]
+    },
+    "loanProviderName": {
+      "type": "string",
+      "default": "",
+      "title": "The loanProviderName Schema",
+      "examples": [
+        "Wealth Securities Dynamic Loans (WSDL)"
+      ]
+    },
+    "approved": {
+      "type": "boolean",
+      "default": false,
+      "title": "The approved Schema",
+      "examples": [
+        true
+      ]
+    },
+    "accountId": {
+      "type": "integer",
+      "default": 0,
+      "title": "The accountId Schema",
+      "examples": [
+        42870
+      ]
+    }
+  },
+  "examples": [{
+    "responseDate": 1660002738671,
+    "loanProviderName": "Wealth Securities Dynamic Loans (WSDL)",
+    "approved": true,
+    "accountId": 42870
+  }]
+}

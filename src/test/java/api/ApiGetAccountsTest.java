@@ -12,7 +12,7 @@ public class ApiGetAccountsTest extends Config {
 
     @Test
     public void getAccountsTest() {
-        final String customerId = Integer.toString(12434);
+        final String customerId = Integer.toString(12212);
 
         given()
                 .when()

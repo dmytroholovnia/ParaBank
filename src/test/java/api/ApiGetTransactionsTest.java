@@ -10,7 +10,7 @@ public class ApiGetTransactionsTest extends Config {
 
     @Test
     public void getTransactionsTest() {
-        final String accountId = Integer.toString(13122);
+        final String accountId = Integer.toString(13344);
 
         given()
                 .when()

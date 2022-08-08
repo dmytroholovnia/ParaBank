@@ -1,6 +1,7 @@
 import api.ApiGetAccountsTest;
 import api.ApiGetTransactionsTest;
 import api.ApiLoginTest;
+import api.ApiRequestLoanTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -9,7 +10,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
         ApiLoginTest.class,
         ApiGetAccountsTest.class,
-        ApiGetTransactionsTest.class
+        ApiGetTransactionsTest.class,
+        ApiRequestLoanTest.class
 })
 
 public class ApiSuite {
