@@ -10,11 +10,10 @@ public class ApiGetTransactionsTest extends Config {
 
     @Test
     public void getTransactionsTest() {
-        final String accountId = Integer.toString(13344);
 
         given()
                 .when()
-                .pathParam("accountId", accountId)
+                .pathParam("accountId", user.getAccountId())
                 .get(GET_TRANSACTIONS)
                 .then()
                 .spec(responseSpecification);

@@ -1,7 +1,7 @@
 package core;
 
-import helper.Helper;
 import com.github.javafaker.Faker;
+import helper.Helper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
