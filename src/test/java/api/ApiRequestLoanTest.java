@@ -2,6 +2,7 @@ package api;
 
 import constants.Constants;
 import core.Config;
+import helper.Helper;
 import io.restassured.RestAssured;
 import org.junit.Test;
 
@@ -11,6 +12,9 @@ import java.util.Map;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class ApiRequestLoanTest extends Config {
+
+    private final int amount = Helper.getRandomNumber(1, 100);
+    private final int downPayment = Helper.getRandomNumber(1, 70);
 
     @Test
     public void requestLoanTest() {
@@ -26,10 +30,10 @@ public class ApiRequestLoanTest extends Config {
     private Map<String, Integer> getQueryParamsForLoan() {
         Map<String, Integer> params = new HashMap<>();
 
-        params.put("customerId", 12212);
-        params.put("amount", 100);
-        params.put("downPayment", 50);
-        params.put("fromAccountId", 13344);
+        params.put("customerId", user.getCustomerId());
+        params.put("amount", amount);
+        params.put("downPayment", downPayment);
+        params.put("fromAccountId", user.getAccountId());
 
         return params;
     }

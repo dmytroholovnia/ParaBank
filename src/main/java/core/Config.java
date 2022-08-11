@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.ResponseSpecification;
+import models.User;
 import org.junit.Before;
 
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class Config {
 
     private static String url;
     private static String authCookieValue;
+    protected User user = new User();
 
     public Config() {
         url = "https://parabank.parasoft.com/";

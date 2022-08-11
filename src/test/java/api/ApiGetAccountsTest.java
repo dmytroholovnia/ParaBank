@@ -12,11 +12,10 @@ public class ApiGetAccountsTest extends Config {
 
     @Test
     public void getAccountsTest() {
-        final String customerId = Integer.toString(12212);
 
         given()
                 .when()
-                .pathParam("customerId", customerId)
+                .pathParam("customerId", user.getCustomerId())
                 .get(GET_ACCOUNTS)
                 .then()
                 .spec(responseSpecification)
