@@ -14,6 +14,7 @@ import java.util.Map;
 import static constants.Constants.Actions.LOGIN;
 import static constants.Constants.RunVariable.path;
 import static constants.Constants.RunVariable.server;
+import static constants.Constants.Statuses.REDIRECT;
 import static constants.Constants.Statuses.SUCCESS;
 import static io.restassured.RestAssured.given;
 
@@ -63,12 +64,14 @@ public class Config {
         authCookieValue = value;
     }
 
-    private String getAuthCookie() {    //todo add validation for successfully login
+    private String getAuthCookie() {
 
         return given()
                 .when()
                 .formParams(getCredentials())
                 .post(LOGIN)
+                .then().statusCode(REDIRECT)
+                .extract().response()
                 .getCookie("JSESSIONID");
     }
 
