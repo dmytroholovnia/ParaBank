@@ -1,4 +1,4 @@
-package api;
+package api.positive;
 
 import core.Config;
 import io.restassured.builder.RequestSpecBuilder;

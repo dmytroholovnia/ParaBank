@@ -1,4 +1,4 @@
-package api;
+package api.positive;
 
 import core.Config;
 import org.junit.Test;

@@ -28,5 +28,6 @@ public class Constants {
     public static class Statuses {
         public static int SUCCESS = 200;
         public static int REDIRECT = 302;
+        public static int BAD_REQUEST = 400;
     }
 }
