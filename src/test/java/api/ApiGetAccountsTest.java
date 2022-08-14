@@ -19,7 +19,6 @@ public class ApiGetAccountsTest extends Config {
                 .get(GET_ACCOUNTS)
                 .then()
                 .spec(responseSpecification)
-                .log().body()
                 .body("type", notNullValue())
                 .body("type[0]", equalTo("CHECKING"));
     }
