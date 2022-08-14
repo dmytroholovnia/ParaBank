@@ -67,37 +67,37 @@ public class SignUpPage extends BasePage {
                                  String password,
                                  String confirm) {
 
-        System.out.println("Enter First Name: " + firstName);
+        logger.log("Enter First Name: " + firstName);
         firstNameInput.sendKeys(firstName);
 
-        System.out.println("Enter Last Name: " + lastName);
+        logger.log("Enter Last Name: " + lastName);
         lastNameInput.sendKeys(lastName);
 
-        System.out.println("Enter Address: " + address);
+        logger.log("Enter Address: " + address);
         addressInput.sendKeys(address);
 
-        System.out.println("Enter City: " + city);
+        logger.log("Enter City: " + city);
         cityInput.sendKeys(city);
 
-        System.out.println("Enter State: " + state);
+        logger.log("Enter State: " + state);
         stateInput.sendKeys(state);
 
-        System.out.println("Enter ZIP: " + zip);
+        logger.log("Enter ZIP: " + zip);
         zipCodeInput.sendKeys(zip);
 
-        System.out.println("Enter phone: " + phone);
+        logger.log("Enter phone: " + phone);
         phoneNumberInput.sendKeys(phone);
 
-        System.out.println("Enter SSN: " + ssn);
+        logger.log("Enter SSN: " + ssn);
         ssnInput.sendKeys(ssn);
 
-        System.out.println("Enter Username: " + login);
+        logger.log("Enter Username: " + login);
         usernameInput.sendKeys(login);
 
-        System.out.println("Enter password: " + password);
+        logger.log("Enter password: " + password);
         passwordInput.sendKeys(password);
 
-        System.out.println("Confirm password: " + confirm);
+        logger.log("Confirm password: " + confirm);
         confirmInput.sendKeys(confirm);
     }
 

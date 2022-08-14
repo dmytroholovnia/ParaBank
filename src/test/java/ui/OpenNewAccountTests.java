@@ -42,19 +42,19 @@ public class OpenNewAccountTests extends BaseTest {
     public void createAccount() {
         OpenNewAccountPage openNewAccountPage = new OpenNewAccountPage(driver, waiter);
 
-        System.out.println("Go to page 'Open New Account'");
+        logger.log("Go to page 'Open New Account'");
         mainPage.goToPage("Open New Account");
 
-        System.out.println("Select type: " + type);
+        logger.log("Select type: " + type);
         openNewAccountPage.selectType(type);
 
-        System.out.println("Click 'Open Account Page' button");
+        logger.log("Click 'Open Account Page' button");
         openNewAccountPage.openNewAccount();
 
-        System.out.println("Check title");
+        logger.log("Check title");
         assertEquals("Title is Incorrect!", "Account Opened!", openNewAccountPage.getTitle().getText());
 
-        System.out.println("Check that account ID exists");
+        logger.log("Check that account ID exists");
         assertNotNull("Account ID doesn't exist!", openNewAccountPage.getAccountId());
     }
 }

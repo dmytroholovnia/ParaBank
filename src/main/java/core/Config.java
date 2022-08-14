@@ -1,6 +1,7 @@
 package core;
 
 import helper.Helper;
+import helper.Logger;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -22,6 +23,7 @@ public class Config {
 
     private static String url;
     private static String authCookieValue;
+    private final Logger logger = new Logger();
     protected User user = new User();
 
     public Config() {
@@ -51,12 +53,12 @@ public class Config {
 
     public String getAuthCookieValue() {
         if (authCookieValue == null) {
-            System.out.println("No auth cookie found");
-            System.out.println("Creating an auth cookie");
+            logger.log("No auth cookie found");
+            logger.log("Creating an auth cookie");
             setAuthCookieValue(getAuthCookie());
         }
 
-        System.out.println("Auth cookie: " + authCookieValue);
+        logger.log("Auth cookie: " + authCookieValue);
         return authCookieValue;
     }
 

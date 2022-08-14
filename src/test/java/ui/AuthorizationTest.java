@@ -16,7 +16,7 @@ public class AuthorizationTest extends BaseTest {
     public void authorization() {
         LoginPage loginPage = new LoginPage(driver);
 
-        System.out.println("Open login page");
+        logger.log("Open login page");
         loginPage.open(driver);
 
         MainPage mainPage = loginPage.authorize(login, password);
@@ -38,7 +38,7 @@ public class AuthorizationTest extends BaseTest {
         login = RandomStringUtils.randomAlphabetic(10);
         password = RandomStringUtils.randomAlphabetic(10);
 
-        System.out.println("Open login page");
+        logger.log("Open login page");
         loginPage.open(driver);
 
         loginPage.authorize(login, password);

@@ -22,7 +22,7 @@ public class SignUpTest extends BaseTest {
     public void signUp() {
         User user = new User();
 
-        System.out.println("Click 'Register button' on Login page");
+        logger.log("Click 'Register button' on Login page");
         SignUpPage signUpPage = loginPage.clickRegister();
 
         signUpPage.fillCustomerData(
@@ -39,7 +39,7 @@ public class SignUpTest extends BaseTest {
                                     user.getConfirm()
         );
 
-        System.out.println("Click 'Register' button on SignUp page");
+        logger.log("Click 'Register' button on SignUp page");
         signUpPage.registerCustomer();
 
         assertEquals("User hasn't been created!",

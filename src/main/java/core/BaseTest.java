@@ -1,6 +1,7 @@
 package core;
 
 import helper.Helper;
+import helper.Logger;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -13,6 +14,7 @@ public class BaseTest {
     protected Waiter waiter;
     protected String login;
     protected String password;
+    protected Logger logger;
 
     @Before
     public void setup() {
@@ -21,6 +23,7 @@ public class BaseTest {
         waiter = new Waiter(driver);
         login = Helper.getProperty("login");
         password = Helper.getProperty("pass");
+        logger = new Logger();
     }
 
     @After
@@ -34,7 +37,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems for Jenkins
         options.addArguments("--no-sandbox"); // Bypass OS security model
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
 
         return options;
     }

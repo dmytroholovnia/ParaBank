@@ -2,6 +2,7 @@ package pages;
 
 import core.Config;
 import core.Waiter;
+import helper.Logger;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -16,6 +17,7 @@ public class BasePage {
 
     protected WebDriver driver;
     protected Waiter waiter;
+    protected Logger logger = new Logger();
     protected static final String url = new Config().getUrl();
 
     public BasePage(WebDriver driver) {
