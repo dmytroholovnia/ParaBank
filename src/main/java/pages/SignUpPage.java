@@ -55,7 +55,7 @@ public class SignUpPage extends BasePage {
     private WebElement registerButton;
 
     @Step("Fill customer data")
-    public void fillCustomerData(String firstName,      //todo refactor to builder
+    public void fillCustomerData(String firstName,
                                  String lastName,
                                  String address,
                                  String city,

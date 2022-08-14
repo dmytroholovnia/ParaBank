@@ -47,7 +47,7 @@ public class AuthorizationTest extends BaseTest {
                      "Error!",
                      loginPage.getErrorTitle().getText());
 
-        assertEquals("Eror message is incorrect!",
+        assertEquals("Error message is incorrect!",
                              expectedMessage,
                              loginPage.getErrorMessage().getText());
     }

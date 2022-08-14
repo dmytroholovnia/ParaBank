@@ -1,11 +1,11 @@
 package ui;
 
 import core.BaseTest;
-import pages.LoginPage;
-import pages.SignUpPage;
-import org.apache.commons.lang3.RandomStringUtils;
+import models.User;
 import org.junit.Before;
 import org.junit.Test;
+import pages.LoginPage;
+import pages.SignUpPage;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,28 +20,30 @@ public class SignUpTest extends BaseTest {
 
     @Test
     public void signUp() {
-        String firstName = data.name().firstName();
-        String lastName = data.name().lastName();
-        String address = data.address().streetAddress();
-        String city = data.address().cityName();
-        String state = data.address().state();
-        String zip = RandomStringUtils.randomNumeric(5);
-        String phone = data.phoneNumber().cellPhone();
-        String ssn = RandomStringUtils.randomNumeric(4);
-        login = firstName + lastName + ssn;
-        password = RandomStringUtils.randomAlphabetic(10);
-        String confirm = password;
+        User user = new User();
 
         System.out.println("Click 'Register button' on Login page");
         SignUpPage signUpPage = loginPage.clickRegister();
 
-        signUpPage.fillCustomerData(firstName, lastName, address, city, state, zip, phone, ssn, login, password, confirm);
+        signUpPage.fillCustomerData(
+                                    user.getFirstName(),
+                                    user.getLastName(),
+                                    user.getAddress(),
+                                    user.getCity(),
+                                    user.getState(),
+                                    user.getZip(),
+                                    user.getPhone(),
+                                    user.getSsn(),
+                                    user.getLogin(),
+                                    user.getPassword(),
+                                    user.getConfirm()
+        );
 
         System.out.println("Click 'Register' button on SignUp page");
         signUpPage.registerCustomer();
 
         assertEquals("User hasn't been created!",
-                "Welcome " + firstName + lastName + ssn,
+                "Welcome " + user.getLogin(),
                         signUpPage.getTitle().getText());
 
         assertEquals("Message is incorrect!",
