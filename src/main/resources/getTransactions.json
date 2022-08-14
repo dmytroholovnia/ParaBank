@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "default": [],
+  "title": "Get Transactions",
+  "items": {
+    "type": "object",
+    "title": "A Schema",
+    "required": [
+      "id",
+      "accountId",
+      "type",
+      "date",
+      "amount",
+      "description"
+    ],
+    "properties": {
+      "id": {
+        "type": "integer",
+        "title": "The id Schema",
+        "examples": [
+          14254,
+          14365,
+          18583
+        ]
+      },
+      "accountId": {
+        "type": "integer",
+        "title": "The accountId Schema",
+        "examples": [
+          13344
+        ]
+      },
+      "type": {
+        "type": "string",
+        "title": "The type Schema",
+        "examples": [
+          "Debit"
+        ]
+      },
+      "date": {
+        "type": "integer",
+        "title": "The date Schema",
+        "examples": [
+          1660114800000,
+          1660460400000
+        ]
+      },
+      "amount": {
+        "type": "number",
+        "title": "The amount Schema",
+        "examples": [
+          1000.00,
+          34.00
+        ]
+      },
+      "description": {
+        "type": "string",
+        "title": "The description Schema",
+        "examples": [
+          "Funds Transfer Sent",
+          "Funds Transfer Received",
+          "Down Payment for Loan # 19671"
+        ]
+      }
+    },
+    "examples": [{
+      "id": 14254,
+      "accountId": 13344,
+      "type": "Debit",
+      "date": 1660114800000,
+      "amount": 1000.00,
+      "description": "Funds Transfer Sent"
+    },
+      {
+        "id": 14365,
+        "accountId": 13344,
+        "type": "Debit",
+        "date": 1660114800000,
+        "amount": 1000.00,
+        "description": "Funds Transfer Received"
+      },
+      {
+        "id": 18583,
+        "accountId": 13344,
+        "type": "Debit",
+        "date": 1660460400000,
+        "amount": 34.00,
+        "description": "Down Payment for Loan # 19671"
+      }]
+  },
+  "examples": [
+    [{
+      "id": 14254,
+      "accountId": 13344,
+      "type": "Debit",
+      "date": 1660114800000,
+      "amount": 1000.00,
+      "description": "Funds Transfer Sent"
+    },
+      {
+        "id": 14365,
+        "accountId": 13344,
+        "type": "Debit",
+        "date": 1660114800000,
+        "amount": 1000.00,
+        "description": "Funds Transfer Received"
+      },
+      {
+        "id": 18583,
+        "accountId": 13344,
+        "type": "Debit",
+        "date": 1660460400000,
+        "amount": 34.00,
+        "description": "Down Payment for Loan # 19671"
+      }]
+  ]
+}

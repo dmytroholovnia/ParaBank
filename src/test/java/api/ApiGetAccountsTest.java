@@ -5,8 +5,11 @@ import org.junit.Test;
 
 import static constants.Constants.Actions.GET_ACCOUNTS;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+
+
 
 public class ApiGetAccountsTest extends Config {
 
@@ -19,6 +22,7 @@ public class ApiGetAccountsTest extends Config {
                 .get(GET_ACCOUNTS)
                 .then()
                 .spec(responseSpecification)
+                .body(matchesJsonSchemaInClasspath("getAccounts.json"))
                 .body("type", notNullValue())
                 .body("type[0]", equalTo("CHECKING"));
     }
