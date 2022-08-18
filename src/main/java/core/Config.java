@@ -5,6 +5,7 @@ import helper.Logger;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.Cookie;
 import io.restassured.specification.ResponseSpecification;
 import models.User;
 import org.junit.Before;
@@ -19,10 +20,12 @@ import static constants.Constants.Statuses.REDIRECT;
 import static constants.Constants.Statuses.SUCCESS;
 import static io.restassured.RestAssured.given;
 
+
 public class Config {
 
     private static String url;
     private static String authCookieValue;
+    private static Cookie authCookieNew;
     private final Logger logger = new Logger();
     protected User user = new User();
 
@@ -44,9 +47,12 @@ public class Config {
         RestAssured.baseURI = server;
         RestAssured.basePath = path;
 
-        RestAssured.requestSpecification = new RequestSpecBuilder()
-                .addCookie("JSESSIONID", getAuthCookieValue())
-                .build();
+        if (authCookieNew == null) {
+            RestAssured.requestSpecification = new RequestSpecBuilder()
+                    .addCookie(getAuthCookieValueNew())
+//                .addCookie("JSESSIONID", getAuthCookieValue())        //todo temporary leave
+                    .build();
+        }
 
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
     }
@@ -62,8 +68,23 @@ public class Config {
         return authCookieValue;
     }
 
+    public Cookie getAuthCookieValueNew() {
+        if (authCookieNew == null) {
+            logger.log("No auth cookie found");
+            logger.log("Creating an auth cookie");
+            setAuthCookieNew(getAuthCookieNew());
+        }
+
+        logger.log("Auth cookie: " + authCookieNew.toString());
+        return authCookieNew;
+    }
+
     private void setAuthCookieValue(String value) {
         authCookieValue = value;
+    }
+
+    private void setAuthCookieNew(Cookie cookie) {
+        authCookieNew = cookie;
     }
 
     private String getAuthCookie() {
@@ -75,6 +96,22 @@ public class Config {
                 .then().statusCode(REDIRECT)
                 .extract().response()
                 .getCookie("JSESSIONID");
+    }
+
+    private Cookie getAuthCookieNew() {
+
+        Cookie cookie = given()
+                .when()
+                .formParams(getCredentials())
+                .post(LOGIN)
+                .then().statusCode(REDIRECT)
+                .extract().response()
+                .getDetailedCookie("JSESSIONID");
+
+        return new Cookie
+                .Builder("JSESSIONID", cookie.getValue())
+                .setMaxAge(-1)
+                .build();
     }
 
     protected HashMap<String, String> getCredentials() {
