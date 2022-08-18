@@ -1,10 +1,8 @@
 package api.positive;
 
 import core.Config;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
+import io.restassured.RestAssured;
+import org.junit.Before;
 import org.junit.Test;
 
 import static constants.Constants.Actions.LOGIN;
@@ -15,24 +13,24 @@ import static io.restassured.RestAssured.given;
 
 public class ApiLoginTest extends Config {
 
-    private final RequestSpecification loginRequestSpec = new RequestSpecBuilder()
-            .setBaseUri(server)
-            .setBasePath(path)
-            .build();
+    @Before
+    @Override
+    public void setUp() {
+        RestAssured.baseURI = server;
+        RestAssured.basePath = path;
 
-    private final ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(REDIRECT)
-            .build();
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+    }
 
     @Test
     public void login() {
+
         given()
-                .spec(loginRequestSpec)
                 .when()
                 .formParams(getCredentials())
                 .post(LOGIN)
                 .then()
-                .spec(loginResponseSpec);
+                .statusCode(REDIRECT);
     }
 
 }

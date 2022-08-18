@@ -1,3 +1,4 @@
+import api.negative.InvalidCredentialsTests;
 import api.negative.InvalidValuesGetTransactionsTests;
 import api.positive.ApiGetAccountsTest;
 import api.positive.ApiGetTransactionsTest;
@@ -9,6 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
+        InvalidCredentialsTests.class,
         ApiLoginTest.class,
         ApiGetAccountsTest.class,
         ApiGetTransactionsTest.class,

@@ -10,23 +10,31 @@ import java.util.Arrays;
 
 import static constants.Constants.Actions.GET_TRANSACTIONS;
 import static constants.Constants.Statuses.BAD_REQUEST;
+import static helper.Helper.Mode;
+import static helper.Helper.randomString;
 import static io.restassured.RestAssured.given;
+import static org.junit.runners.Parameterized.Parameter;
+import static org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
 public class InvalidValuesGetTransactionsTests extends Config {
 
-    @Parameterized.Parameters(name = "{0}")
+    @Parameters(name = "{0}")
     public static Iterable<Object[]> testCases() {
         return Arrays.asList(new Object[][]{
-                {"", BAD_REQUEST},
-                {RandomStringUtils.randomAlphabetic(1), BAD_REQUEST}
+                {"Empty value", "", BAD_REQUEST},
+                {"Invalid value", RandomStringUtils.randomAlphabetic(1), BAD_REQUEST},
+                {"Symbol value", randomString(Mode.SYMBOLS, 1), BAD_REQUEST}
         });
     }
 
-    @Parameterized.Parameter()
+    @Parameter
+    public String name;
+
+    @Parameter(1)
     public String value;
 
-    @Parameterized.Parameter(1)
+    @Parameter(2)
     public int status;
 
     @Test
@@ -34,9 +42,10 @@ public class InvalidValuesGetTransactionsTests extends Config {
 
         given()
                 .when()
-                .pathParam("accountId", value)
+                .pathParam("accountId", value).log().cookies()
                 .get(GET_TRANSACTIONS)
                 .then()
-                .statusCode(status);
+                .statusCode(status)
+                .log().all();
     }
 }
