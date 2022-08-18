@@ -1,4 +1,4 @@
-package api;
+package api.positive;
 
 import constants.Constants;
 import core.Config;
@@ -24,7 +24,7 @@ public class ApiRequestLoanTest extends Config {
                 .post(Constants.Actions.REQUEST_LOAN)
                 .then()
                 .spec(responseSpecification)
-                .body(matchesJsonSchemaInClasspath("jsonSchemaForLoanRequest.json"));
+                .body(matchesJsonSchemaInClasspath("loanRequest.json"));
     }
 
     private Map<String, Integer> getQueryParamsForLoan() {

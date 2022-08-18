@@ -20,10 +20,10 @@ public class LogOutTest extends BaseTest {
 
     @Test
     public void logOut(){
-        System.out.println("Click 'Log Out'");
+        logger.log("Click 'Log Out'");
         mainPage.goToPage("Log Out");
 
-        System.out.println("Check that user is logged out");
+        logger.log("Check that user is logged out");
         Assert.assertTrue("Login input is displayed", loginPage.getLoginInput().isDisplayed());
         Assert.assertTrue("Login input is displayed", loginPage.getPasswordInput().isDisplayed());
         Assert.assertTrue("Login input is displayed", loginPage.getLoginButton().isDisplayed());

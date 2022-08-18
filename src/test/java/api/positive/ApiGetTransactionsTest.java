@@ -1,10 +1,11 @@
-package api;
+package api.positive;
 
 import core.Config;
 import org.junit.Test;
 
 import static constants.Constants.Actions.GET_TRANSACTIONS;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class ApiGetTransactionsTest extends Config {
 
@@ -16,6 +17,7 @@ public class ApiGetTransactionsTest extends Config {
                 .pathParam("accountId", user.getAccountId())
                 .get(GET_TRANSACTIONS)
                 .then()
-                .spec(responseSpecification);
+                .spec(responseSpecification)
+                .body(matchesJsonSchemaInClasspath("getTransactions.json"));
     }
 }

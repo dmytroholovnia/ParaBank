@@ -36,13 +36,13 @@ public class LoginPage extends BasePage {
 
     @Step("Authorize")
     public MainPage authorize(String login, String password) {
-        System.out.println("Enter login");
+        logger.log("Enter login");
         loginInput.sendKeys(login);
 
-        System.out.println("Enter pass");
+        logger.log("Enter pass");
         passwordInput.sendKeys(password);
 
-        System.out.println("Click 'Login' button");
+        logger.log("Click 'Login' button");
         loginButton.click();
         return new MainPage(driver);
     }
