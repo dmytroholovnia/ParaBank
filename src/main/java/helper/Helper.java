@@ -80,4 +80,35 @@ public class Helper {
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+    public enum Mode {
+        ALPHA, NUMERIC, ALPHANUMERIC, SYMBOLS
+    }
+
+    public static String randomString(Mode mode, int length) {
+        String abc = "";
+
+        switch (mode) {
+            case ALPHA:
+                abc = "ABCDIFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                break;
+            case NUMERIC:
+                abc = "0123456789";
+                break;
+            case ALPHANUMERIC:
+                abc = "ABCDIFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                break;
+            case SYMBOLS:
+                abc = "!@#$%^&*~";
+        }
+
+        StringBuilder randomString = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int randomIndex = (int) (Math.random() * abc.length());
+            randomString.append(abc.charAt(randomIndex));
+        }
+        return randomString.toString();
+    }
+
+
 }
