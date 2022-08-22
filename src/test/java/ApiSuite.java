@@ -10,12 +10,12 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-        InvalidCredentialsTests.class,
         ApiLoginTest.class,
         ApiGetAccountsTest.class,
         ApiGetTransactionsTest.class,
         ApiRequestLoanTest.class,
-        InvalidValuesGetTransactionsTests.class
+        InvalidCredentialsTests.class,
+        InvalidValuesGetTransactionsTests.class,
 })
 
 public class ApiSuite {

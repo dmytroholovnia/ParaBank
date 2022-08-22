@@ -68,7 +68,7 @@ public class InvalidCredentialsTests extends Config {
                 .response()
                 .body()
                 .htmlPath()
-                .getString("html.body.div.div.div.p.text()");
+                .getString("html.body.div.div.div[1].p.text()");
 
         Assert.assertEquals("Message is invalid!", message, actualMessage);
     }
